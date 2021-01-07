@@ -40,10 +40,10 @@ package Arrays;
  */
 public class MountainArray {
     public static boolean validMountainArray(int[] arr) {
-        boolean isMountain = true,isDecreasing = false;
+        boolean isMountain = true, isDecreasing = false;
         int top = arr[0];
 
-        if (arr.length == 1 || arr[1] < top || arr[arr.length-1]>arr[arr.length-2]) {
+        if (arr.length == 1 || arr[1] < top || arr[arr.length - 1] > arr[arr.length - 2]) {
             return false;
         }
 
@@ -53,7 +53,7 @@ public class MountainArray {
             } else if (arr[i] < top) {
                 top = arr[i];
                 isDecreasing = true;
-            }else {
+            } else {
                 isMountain = false;
             }
         }
@@ -61,7 +61,7 @@ public class MountainArray {
     }
 
     public static void main(String[] args) {
-        boolean res = validMountainArray(new int[]{0,1,2,3,4,5,6,7,8,9});
+        boolean res = validMountainArray(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
         System.out.println(res);
     }
 }

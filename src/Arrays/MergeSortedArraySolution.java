@@ -32,7 +32,7 @@ package Arrays;
 public class MergeSortedArraySolution {
     /*
     m is real size of nums1
-    start from m+1 and insert nums2
+    iterate starts from m and replace with nums2
     sort array
      */
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
@@ -43,8 +43,8 @@ public class MergeSortedArraySolution {
             nums1[i] = nums2[j];
             j++;
         }
-        for (int i = 0; i < size-1; i++) {
-            for (int k = i+1; k < size; k++) {
+        for (int i = 0; i < size - 1; i++) {
+            for (int k = i + 1; k < size; k++) {
                 if (nums1[k] < nums1[i]) {
                     temp = nums1[k];
                     nums1[k] = nums1[i];
@@ -65,7 +65,7 @@ public class MergeSortedArraySolution {
     }
 
     public static void main(String[] args) {
-        merge(new int[]{0,1,2,0,0,0},3,new int[]{0,1,-5},3);
+        merge(new int[]{0, 1, 2, 0, 0, 0}, 3, new int[]{0, 1, -5}, 3);
     }
 
 }

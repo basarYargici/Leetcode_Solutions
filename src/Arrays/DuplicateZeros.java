@@ -71,7 +71,7 @@ public class DuplicateZeros {
                 secondArr[j] = i;
             } else {
                 secondArr[j] = 0;
-                if (j+1 < size){
+                if (j + 1 < size) {
                     secondArr[j + 1] = 0;
                 }
                 j++;
@@ -79,7 +79,7 @@ public class DuplicateZeros {
             j++;
             if (j >= size) break;
         }
-        for (int i = 0; i <size ; i++) {
+        for (int i = 0; i < size; i++) {
             arr[i] = secondArr[i];
         }
 
@@ -93,7 +93,7 @@ public class DuplicateZeros {
     }
 
     public static void main(String[] args) {
-        duplicateZeros(new int[]{1,0,2,3,0,4,5,0});
+        duplicateZeros(new int[]{1, 0, 2, 3, 0, 4, 5, 0});
     }
 
 }

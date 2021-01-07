@@ -48,9 +48,7 @@ package Arrays;
  * -104 <= nums[i] <= 104
  * nums is sorted in ascending order.
  */
-public class RemoveDuplicatesfromSortedArray {
-
-
+public class RemoveDuplicatesFromSortedArray {
     public static int removeDuplicates(int[] nums) {
         int i = 0;
         for (int j = 1; j < nums.length; j++) {

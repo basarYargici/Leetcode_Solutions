@@ -37,12 +37,17 @@ package TopInterviewQuestionsEasy;
  * -2^31 <= n <= 2^31 - 1
  */
 public class PowerOfThree {
+    /*
+     Divide n to 3 until it reaches 1
+     if result is 1 return true, otherwise false
+     */
+
     public static boolean isPowerOfThree(int n) {
-        if (n == 0){
+        if (n == 0) {
             return false;
         }
-        while (n%3 == 0){
-            n /=3;
+        while (n % 3 == 0) {
+            n /= 3;
         }
         return (n == 1);
     }

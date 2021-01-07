@@ -45,18 +45,18 @@ public class FindNumberswithEvenNumberofDigits {
     //  divCount = 1
     public static int findNumbers(int[] nums) {
         int divCount = 1, count = 0;
-        if (nums.length>500){
+        if (nums.length > 500) {
             return 0;
         }
         for (int element : nums) {
-            if (element<1 || element>Math.pow(10,5)){
+            if (element < 1 || element > Math.pow(10, 5)) {
                 return 0;
             }
-            while(element/10 != 0){
+            while (element / 10 != 0) {
                 divCount++;
-                element /=10;
+                element /= 10;
             }
-            if (divCount%2 == 0){
+            if (divCount % 2 == 0) {
                 count++;
             }
             divCount = 1;
@@ -65,7 +65,7 @@ public class FindNumberswithEvenNumberofDigits {
     }
 
     public static void main(String[] args) {
-        int result = findNumbers(new int[]{12,345,2,6,7896});
+        int result = findNumbers(new int[]{12, 345, 2, 6, 7896});
         System.out.println(result);
     }
 

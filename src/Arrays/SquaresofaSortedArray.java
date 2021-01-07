@@ -44,17 +44,17 @@ public class SquaresofaSortedArray {
      */
 
     public static int[] sortedSquares(int[] arr) throws Exception {
-        if (arr.length <1 || arr.length>10000) throw new Exception("read constraints");
+        if (arr.length < 1 || arr.length > 10000) throw new Exception("read constraints");
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] <-10000 || arr[i]>10000) throw new Exception("read constraints");
-            arr[i] *=arr[i];
+            if (arr[i] < -10000 || arr[i] > 10000) throw new Exception("read constraints");
+            arr[i] *= arr[i];
         }
         Arrays.sort(arr);
         return arr;
     }
 
     public static void main(String[] args) throws Exception {
-        int[] result = sortedSquares(new int[]{-7,-3,2,3,11});
+        int[] result = sortedSquares(new int[]{-7, -3, 2, 3, 11});
 
         for (int element : result) {
             System.out.print(element + " ");
