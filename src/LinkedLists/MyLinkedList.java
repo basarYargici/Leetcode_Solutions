@@ -48,16 +48,16 @@ class MyLinkedList {
     /**
      * Get the value of the index-th node in the linked list. If the index is invalid, return -1.
      */
-    public int get(int index) throws Exception {
+    public int get(int index) {
         Node node = head;
         int counter = 0;
 
         if (head == null) {
-            throw new Exception("List is empty");
+            return -1;
         }
-        if (isValidIndex(index)) throw new Exception("invalid index");
+        if (isValidIndex(index)) return -1;
 
-        while (counter < index-1) {
+        while (counter < index) {
             node = node.next;
             counter++;
         }
@@ -70,6 +70,12 @@ class MyLinkedList {
      */
     public void addAtHead(int val) {
         Node node = new Node(val);
+        if (head == null) {
+            head = node;
+            node.next = null;
+            size++;
+            return;
+        }
         node.next = head;
         head = node;
         size++;
@@ -85,30 +91,34 @@ class MyLinkedList {
             size++;
             return;
         }
-        Node temp = new Node(val), node = head;
+        Node temp = new Node(val);
+        Node node = head;
+
         while (node.hasNext()) {
             node = node.next;
         }
-        temp = node.next;
-        temp.next = null;
+        node.next = temp;
         size++;
     }
 
     /**
      * Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted.
      */
-    public void addAtIndex(int index, int val) throws Exception {
-        if (isValidIndex(index)) throw new Exception("invalid index");
+    public void addAtIndex(int index, int val) {
+        if (isValidIndex(index)) return;
         if (index == 0) {
             addAtHead(val);
             return;
+        } else if (index == size) {
+            addAtTail(val);
+            return;
         } else {
-            Node temp, node = head;
+            Node temp = new Node(val);
+            Node node = head;
 
             for (int i = 1; i < index; i++) {
                 node = node.next;
             }
-            temp = node;
             temp.next = node.next;
             node.next = temp;
 
@@ -120,16 +130,23 @@ class MyLinkedList {
     /**
      * Delete the index-th node in the linked list, if the index is valid.
      */
-    public void deleteAtIndex(int index) throws Exception {
-        if (isValidIndex(index)) throw new Exception("invalid index");
-        Node temp, node = head;
+    public void deleteAtIndex(int index) {
+        if (!isValidIndex(index)) return;
+        if (head == null) {
+            return;
+        }
+        Node node = head;
 
-        for (int i = 0; i < index; i++) {
-            node = node.next;
+        if (index == 0) {
+            head = head.next;
+            size--;
+            return;
         }
 
-        temp = node.next;
-        node.next = temp.next;
+        for (int i = 0; i < index - 1; i++) {
+            node = node.next;
+        }
+        node.next = node.next.next;
         size--;
     }
 
@@ -150,16 +167,26 @@ class MyLinkedList {
 
 class Test {
     public static void main(String[] args) throws Exception {
-        MyLinkedList mL = new MyLinkedList();
-        mL.addAtHead(1);
-        mL.addAtIndex(1,2);
-        mL.addAtIndex(2,3);
-        mL.addAtIndex(3,4);
-//        mL.addAtIndex(1,99);
+        //Your MyLinkedList object will be instantiated and called as such:
+        MyLinkedList myLinkedList = new MyLinkedList();
 
-        for (int i = 0; i < mL.getSize(); i++) {
-            System.out.print(mL.get(i) + " ");
+        myLinkedList.addAtHead(2);
+        myLinkedList.deleteAtIndex(1);
+        myLinkedList.addAtHead(2);
+        myLinkedList.addAtHead(7);
+        myLinkedList.addAtHead(3);
+        myLinkedList.addAtHead(2);
+        myLinkedList.addAtHead(5);
+        myLinkedList.addAtTail(5);
+        myLinkedList.get(5);
+        myLinkedList.deleteAtIndex(6);
+        myLinkedList.deleteAtIndex(4);
+
+
+        for (int i = 0; i < myLinkedList.getSize(); i++) {
+            System.out.print(myLinkedList.get(i) + " ");
         }
+
     }
 }
 
