@@ -1,7 +1,5 @@
 package LinkedLists;
 
-import java.util.List;
-
 /**
  * Project: Leetcode
  * Package: LinkedLists
