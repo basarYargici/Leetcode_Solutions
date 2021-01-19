@@ -1,6 +1,6 @@
 package LinkedLists;
 
-// HAS PROBLEMS
+// HAS SOME TODO'S
 
 /**
  * Project: Leetcode

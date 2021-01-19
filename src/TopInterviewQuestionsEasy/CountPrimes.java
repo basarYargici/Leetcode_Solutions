@@ -1,5 +1,6 @@
 package TopInterviewQuestionsEasy;
-// NOT FINISHED
+
+// HAS SOME TODO'S
 
 /**
  * Project: Leetcode

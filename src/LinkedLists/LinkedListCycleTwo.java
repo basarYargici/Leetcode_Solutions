@@ -1,5 +1,7 @@
 package LinkedLists;
 
+// HAS SOME TODO'S
+
 /**
  * Project: Leetcode
  * Package: LinkedLists
